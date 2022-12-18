@@ -1,0 +1,6 @@
+C:\Users\victo\source\repos\4_ProyectoCQSL\Entidades\bin\Debug\Entidades.dll
+C:\Users\victo\source\repos\4_ProyectoCQSL\Entidades\bin\Debug\Entidades.pdb
+C:\Users\victo\source\repos\4_ProyectoCQSL\Entidades\obj\Debug\Entidades.csproj.AssemblyReference.cache
+C:\Users\victo\source\repos\4_ProyectoCQSL\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\victo\source\repos\4_ProyectoCQSL\Entidades\obj\Debug\Entidades.dll
+C:\Users\victo\source\repos\4_ProyectoCQSL\Entidades\obj\Debug\Entidades.pdb
