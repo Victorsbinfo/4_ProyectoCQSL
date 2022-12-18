@@ -1,0 +1,122 @@
+use master
+go
+
+create database DB_BasePruebas
+go
+
+use DB_BasePruebas
+go
+
+create schema SCH_GENERAL
+go
+
+create table SCH_GENERAL.TBL_Usuarios
+(
+IdUsuario tinyint identity(1,1) primary key
+,Nombre varchar(15) not null
+,Apellido1 varchar(15) not null
+,Apellido2 varchar(15) not null
+,FechaNacimiento smalldatetime not null
+,Estado bit not null
+) 
+
+// METODOS BASE DE DATOS
+
+use DB_BasePruebas
+go
+
+create procedure [SCH_GENERAL].[SP_Usuarios_Index]
+as
+begin
+
+SELECT [IdUsuario]
+      ,[Nombre]
+      ,[Apellido1]
+      ,[Apellido2]
+      ,[FechaNacimiento]
+      ,[Estado]
+  FROM [SCH_GENERAL].[TBL_Usuarios]
+
+end
+go
+
+create procedure [SCH_GENERAL].[SP_Usuarios_Create]
+(
+@Nombre varchar(15)
+,@Apellido1 varchar(15)
+,@Apellido2 varchar(15)
+,@FechaNacimiento smalldatetime
+,@Estado bit
+)
+as
+begin
+
+INSERT INTO [SCH_GENERAL].[TBL_Usuarios]
+           ([Nombre]
+           ,[Apellido1]
+           ,[Apellido2]
+           ,[FechaNacimiento]
+           ,[Estado])
+     VALUES
+           (@Nombre
+           ,@Apellido1
+           ,@Apellido2
+           ,@FechaNacimiento
+           ,@Estado)
+
+SELECT SCOPE_IDENTITY()
+
+end
+go
+
+create procedure [SCH_GENERAL].[SP_Usuarios_Read]
+(
+@IdUsuario tinyint
+)
+as
+begin
+
+SELECT [IdUsuario]
+      ,[Nombre]
+      ,[Apellido1]
+      ,[Apellido2]
+      ,[FechaNacimiento]
+      ,[Estado]
+  FROM [SCH_GENERAL].[TBL_Usuarios] where IdUsuario = @IdUsuario
+
+end
+go
+
+create procedure [SCH_GENERAL].[SP_Usuarios_Update]
+(
+@IdUsuario tinyint
+,@Nombre varchar(15)
+,@Apellido1 varchar(15)
+,@Apellido2 varchar(15)
+,@FechaNacimiento smalldatetime
+,@Estado bit
+)
+as
+begin
+UPDATE [SCH_GENERAL].[TBL_Usuarios]
+   SET [Nombre] = @Nombre
+      ,[Apellido1] = @Apellido1
+      ,[Apellido2] = @Apellido2
+      ,[FechaNacimiento] = @FechaNacimiento
+      ,[Estado] = @Estado
+ WHERE IdUsuario = @IdUsuario
+end
+go
+
+create procedure [SCH_GENERAL].[SP_Usuarios_Delete]
+(
+@IdUsuario tinyint
+)
+as
+begin
+
+DELETE
+  FROM [SCH_GENERAL].[TBL_Usuarios] where IdUsuario = @IdUsuario
+
+end
+go
